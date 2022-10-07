@@ -2,43 +2,35 @@
 
 // The computer will choose between rock paper scissors randomly.
 
-/* function name <getComputerChoice> 
-computer will select a randome number between min=1 and max=3.
-using  Math.floor(Math.random()*(max-min+1)) + min ;
-
-     IF randomNumber == 1 
-          computerChoice = "rock";
-    ELSE IF randomeNumber == 2
-          computerChoice ="paper";
-    ELSE IF randomeNumber == 3
-         computerChoice = "scissors";
-    ELSE 
-         computerChoice = "have not decided yet";
-    END
-RETURN computerChoice    
-END*/
-
-
+function getComputerChoice() {
+    let randomSelection = Math.floor(Math.random() * 2) + 1;
+    let computerSelection = "0";
+    if (randomSelection == 0) computerSelection = "rock";
+    else if (randomSelection == 1) computerSelection = "paper";
+    else if (randomSelection == 2) computerSelection = "scissors";
+    else computerSelection = "have not decided yet";
+    return computerSelection;
+}
 
 //the user will inpute his chocie of rock paper scissors.
-
-/* function name <getUserChoice>
-
-    userChoice = prompt("choose between rock, paper or scisors");
-
-    // make function case-insensitive user can input rock, ROCK , rOCK.
-    userCHocie = userChoice.toLowerCase();
-
+function getUserChoice() {
+    noSelection = false;
     //CASE user enter wrong value 
-    //( loop  this with a while later to keep asking for a new value every time USER input a wrong VALUE)
-    
-
-RETURN userChocie
-END*/
+    while (noSelection == false) {
+        let userSelection = prompt("choose between rock, paper or scissors");
+        // make function case-insensitive user can input rock, ROCK , rOCK.
+        userSelectionInsensitive = userSelection.toLowerCase();
+        //CASE user enter wrong value 
+        if (userSelectionInsensitive == "rock" || userSelectionInsensitive == "paper" || userSelectionInsensitive == "scissors")
+            noSelection = true;
+        else console.log("wrong value");
+    }
+    return userSelectionInsensitive;
+}
 
 /*function name <playRound>(userChoice, computerChoice)
 
-      //code will compare between the values of the user and computer.
+     
 
 
       // if user choice == computer choice say "it's a tie".
@@ -77,8 +69,21 @@ END*/
     ELSE console.log("no winner");
     END
 
-    return roundWinner;
+    return [roundWinner, userRound, computerRound];
 END*/
+
+//code will compare between the values of the user and computer and select this rounds winner.
+function playRound(userChoice, computerChoice) {
+    let roundWinner;
+    let userRound = false;
+    let computerRound = false;
+    if (userChoice == computerChoice) roundWinner = "it's a tie";
+    else if (userChoice == "paper" && computerChoice == "rock") {
+        roundWinner = "you win! paper beat rock";
+        userRound = true;
+        computerRound = false;
+    }
+}
 
 
 
@@ -94,13 +99,13 @@ END*/
 
          computerSelection = call function getComputerChocie();
          userSelection = call function getUserChoice();
-         Winner = call function playRound(userSelection, computerSelection);
-         console.log(`round number ${gameRounds}: ${Winner});
+         LET {Winner, user, computer} = call function playRound(userSelection, computerSelection);
+         console.log(`round number ${gameRounds}: ${Winner}`);
          gameRounds = gameRounds + 1;
 
-         IF user wins THEN 
+         IF user == true THEN 
             userScore++;
-         ELSE 
+         ELSE if computer = true THEN
             computerScore++;
          END
     END
