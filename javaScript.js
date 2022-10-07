@@ -28,61 +28,53 @@ function getUserChoice() {
     return userSelectionInsensitive;
 }
 
-/*function name <playRound>(userChoice, computerChoice)
-
-     
-
-
-      // if user choice == computer choice say "it's a tie".
-    IF (userChoice == computerChoice) THEN
-         roundWinner = "it's a TIE!";
-
-
-      // else if user choice == paper and computer choice ==rock say "you win".
-    ELSE IF (userChoice =="paper" && computerChoice =="rock") THEN
-          roundWinner = "you win! paper beat rock"
-
-
-      // else if user choice == paper and computer choice ==scissors say "you lose".
-    ELSE IF (userChoice =="paper" && computerChoice =="scissors") THEN
-          roundWinner = "you lose! scissors beat paper"
-
-
-
-      // else if user choice == rock and computer choice ==sissors say "you win".
-    ELSE IF (userChoice =="rock" && computerChoice =="scissors") THEN
-          roundWinner = "you win! rock beat scissors"
-
-
-      // else if user choice == rock and computer choice ==paper say "you lose".
-     ELSE IF (userChoice =="rock" && computerChoice =="paper") THEN
-          roundWinner = "you lose! paper beat rock"
-
-
-    // else if user choice == scissors and computer choice ==rock say "you lose".
-    ELSE IF (userChoice =="scissors" && computerChoice =="rock") THEN
-          roundWinner = "you lose! rock beat scissors"
-
-      // else if user choice == scissors and computer choice ==paper say "you win".
-    ELSE IF (userChoice =="scissors" && computerChoice =="paper") THEN
-          roundWinner = "you win! scissors beat paper"
-    ELSE console.log("no winner");
-    END
-
-    return [roundWinner, userRound, computerRound];
-END*/
-
 //code will compare between the values of the user and computer and select this rounds winner.
 function playRound(userChoice, computerChoice) {
     let roundWinner;
     let userRound = false;
     let computerRound = false;
+
+    // if user choice == computer choice say "it's a tie".
     if (userChoice == computerChoice) roundWinner = "it's a tie";
+    // else if user choice == paper and computer choice ==rock say "you win".
     else if (userChoice == "paper" && computerChoice == "rock") {
         roundWinner = "you win! paper beat rock";
         userRound = true;
         computerRound = false;
     }
+    // else if user choice == paper and computer choice ==scissors say "you lose".
+    else if (userChoice == "paper" && computerChoice == "scissors") {
+        roundWinner = "you lose! scissors beat paper";
+        userRound = false;
+        computerRound = true;
+    }
+    // else if user choice == rock and computer choice ==sissors say "you win".
+    else if (userChoice == "rock" && computerChoice == "scissors") {
+        roundWinner = "you win! rock beat scissors";
+        userRound = true;
+        computerRound = false;
+    }
+    // else if user choice == rock and computer choice ==paper say "you lose".
+    else if (userChoice == "rock" && computerChoice == "paper") {
+        roundWinner = "you lose! paper beat rock";
+        userRound = false;
+        computerRound = true;
+    }
+    // else if user choice == scissors and computer choice ==rock say "you lose".
+    else if (userChoice == "scissors" && computerChoice == "rock") {
+        roundWinner = "you lose! rock beat scissors";
+        userRound = false;
+        computerRound = true;
+    }
+    // else if user choice == scissors and computer choice ==paper say "you win".
+    else if (userChoice == "scissors" && computerChoice == "paper") {
+        roundWinner = "you win! scissors beat paper";
+        userRound = true;
+        computerRound = false;
+    }
+    else console.log("no winner");
+
+    return [roundWinner, userRound, computerRound];
 }
 
 
