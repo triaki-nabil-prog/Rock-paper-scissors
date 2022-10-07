@@ -1,16 +1,8 @@
 // Programme name <Rock paper Scissors>
-let keepAsking = true;
-while ( keepAsking == true){
 
-let play = prompt("do you wanna play a rock paper scissors game! yes or no?");
-
-if ( play == "yes"){
-
-        let gameWinner = game();
-        console.log(gameWinner);
-        play = "gameEND";
-}
-}
+let gameWinner = game();
+console.log(gameWinner);
+play = "gameEND";
 
 
 // The computer will choose between rock paper scissors randomly.
