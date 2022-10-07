@@ -1,7 +1,17 @@
 // Programme name <Rock paper Scissors>
+let keepAsking = true;
+while ( keepAsking == true){
 
-let gameWinner=game();
-console.log(gameWinner);
+let play = prompt("do you wanna play a rock paper scissors game! yes or no?");
+
+if ( play == "yes"){
+
+        let gameWinner = game();
+        console.log(gameWinner);
+        play = "gameEND";
+}
+}
+
 
 // The computer will choose between rock paper scissors randomly.
 function getComputerChoice() {
@@ -29,7 +39,7 @@ function getUserChoice() {
             noSelection = true;
         else console.log("wrong value");
     }
-    
+
     return userSelectionInsensitive;
 }
 
@@ -85,7 +95,7 @@ function playRound(userChoice, computerChoice) {
 
 //play a 5 rounds game loop the game 5 times then end it.
 function game() {
-    
+
     let gameRound = 1;
     let userScore = 0;
     let computerScore = 0;
