@@ -1,8 +1,11 @@
 // Programme name <Rock paper Scissors>
 
-// The computer will choose between rock paper scissors randomly.
+let gameWinner=game();
+console.log(gameWinner);
 
+// The computer will choose between rock paper scissors randomly.
 function getComputerChoice() {
+
     let randomSelection = Math.floor(Math.random() * 2) + 1;
     let computerSelection = "0";
     if (randomSelection == 0) computerSelection = "rock";
@@ -14,6 +17,7 @@ function getComputerChoice() {
 
 //the user will inpute his chocie of rock paper scissors.
 function getUserChoice() {
+
     noSelection = false;
     //CASE user enter wrong value 
     while (noSelection == false) {
@@ -25,11 +29,13 @@ function getUserChoice() {
             noSelection = true;
         else console.log("wrong value");
     }
+    
     return userSelectionInsensitive;
 }
 
 //code will compare between the values of the user and computer and select this rounds winner.
 function playRound(userChoice, computerChoice) {
+
     let roundWinner;
     let userRound = false;
     let computerRound = false;
@@ -77,49 +83,31 @@ function playRound(userChoice, computerChoice) {
     return [roundWinner, userRound, computerRound];
 }
 
+//play a 5 rounds game loop the game 5 times then end it.
+function game() {
+    
+    let gameRound = 1;
+    let userScore = 0;
+    let computerScore = 0;
+    let gameroundswinner = "0";
 
+    while (gameRound <= 5) {
+        let computerChoice = getComputerChoice();
+        let userChoice = getUserChoice();
+        let [winner, user, computer] = playRound(userChoice, computerChoice);
+        console.log(`round number ${gameRound}: computer played ${computerChoice} , ${winner}`);
+        if (user == true) userScore++;
+        else if (computer == true) computerScore++;
+        gameRound++;
+    }
+    //return the value of user score and computer score .
+    // compare between the score to decide a  game winner.
+    if (userScore == computerScore) gameRoundsWinner = "the five rounds is a TIE";
+    else if (userScore < computerScore) gameRoundsWinner = "you lost the  five rounds game";
+    else if (userScore > computerScore) gameRoundsWinner = "you won the five rounds game";
 
-/* function name <game>
-
-     //play a 5 rounds game loop the game 5 times then end it.
-
- initial gameRound = 1;
-         userScore = 0;
-         computerScore = 0;
-
-    WHILE (gameRounds <= 5) do
-
-         computerSelection = call function getComputerChocie();
-         userSelection = call function getUserChoice();
-         LET {Winner, user, computer} = call function playRound(userSelection, computerSelection);
-         console.log(`round number ${gameRounds}: ${Winner}`);
-         gameRounds = gameRounds + 1;
-
-         IF user == true THEN 
-            userScore++;
-         ELSE if computer = true THEN
-            computerScore++;
-         END
-    END
- 
-  //return the value of user score and computer score .
-  consol.log(`your score is ${userScore}`);
-  consol.log(`computer score is ${computerScore}`);
-
-  // compare between the score.
-  IF (userScore == computerScore) THEN
-      PRINT you won the game
-  ELSE IF (userScore <= computerScore) THEN
-      PRINT you lost the game
-  ELSE 
-      PRINT you won the game
-   END
-
-END*/
-
-
-
-
+    return gameRoundsWinner;
+}
 
 
 
