@@ -3,12 +3,7 @@
 let buttonSelection = document.querySelectorAll('button');
 buttonSelection.forEach(button => {
     button.addEventListener('click', () => {
-        let computerChoice = getComputerChoice();
-        let userChoice = getUserChoice(button);
-        let winner = playRound(userChoice,computerChoice);
-        let div = document.querySelector('div');
-        div.textContent = `computer choice ; ${computerChoice} : ${winner}`;
-
+        playRound(button);
     });
 });
 
@@ -35,8 +30,9 @@ function getUserChoice(button) {
 }
 
 //code will compare between the values of the user and computer and select this rounds winner.
-function playRound(userChoice,computerChoice) {
-    
+function playRound(button) {
+    let computerChoice = getComputerChoice();
+    let userChoice = getUserChoice(button);
 
     let roundWinner;
 
@@ -72,9 +68,11 @@ function playRound(userChoice,computerChoice) {
         roundWinner = "you win! scissors beat paper";
 
     }
-    else roundWinner="no winner";
+    else roundWinner = "no winner";
 
-    return roundWinner;
+    let div = document.querySelector('div');
+    div.textContent = `computer choice ; ${computerChoice} : ${roundWinner}`;
+    return;
 }
 
 
