@@ -1,7 +1,5 @@
 // Programme name <Rock paper Scissors>
 
-
-
 let buttonSelection = document.querySelectorAll('button');
 buttonSelection.forEach(button => {
     button.addEventListener('click', () => {
@@ -13,10 +11,6 @@ buttonSelection.forEach(button => {
 
     });
 });
-
-
-
-
 
 // The computer will choose between rock paper scissors randomly.
 function getComputerChoice() {
@@ -78,7 +72,7 @@ function playRound(userChoice,computerChoice) {
         roundWinner = "you win! scissors beat paper";
 
     }
-    else console.log("no winner");
+    else roundWinner="no winner";
 
     return roundWinner;
 }
