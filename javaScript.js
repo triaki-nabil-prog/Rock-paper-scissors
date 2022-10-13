@@ -1,8 +1,10 @@
 // Programme name <Rock paper Scissors>
 
-let gameWinner = game();
-console.log(gameWinner);
-play = "gameEND";
+let computerChoice = getComputerChoice();
+let userChoice = getUserChoice();
+let [winner, user, computer] = playRound(userChoice, computerChoice);
+console.log(`computer played ${computerChoice} , ${winner}`);
+
 
 
 // The computer will choose between rock paper scissors randomly.
@@ -83,32 +85,6 @@ function playRound(userChoice, computerChoice) {
     else console.log("no winner");
 
     return [roundWinner, userRound, computerRound];
-}
-
-//play a 5 rounds game loop the game 5 times then end it.
-function game() {
-
-    let gameRound = 1;
-    let userScore = 0;
-    let computerScore = 0;
-    let gameroundswinner = "0";
-
-    while (gameRound <= 5) {
-        let computerChoice = getComputerChoice();
-        let userChoice = getUserChoice();
-        let [winner, user, computer] = playRound(userChoice, computerChoice);
-        console.log(`round number ${gameRound}: computer played ${computerChoice} , ${winner}`);
-        if (user == true) userScore++;
-        else if (computer == true) computerScore++;
-        gameRound++;
-    }
-    //return the value of user score and computer score .
-    // compare between the score to decide a  game winner.
-    if (userScore == computerScore) gameRoundsWinner = "the five rounds is a TIE";
-    else if (userScore < computerScore) gameRoundsWinner = "you lost the  five rounds game";
-    else if (userScore > computerScore) gameRoundsWinner = "you won the five rounds game";
-
-    return gameRoundsWinner;
 }
 
 
